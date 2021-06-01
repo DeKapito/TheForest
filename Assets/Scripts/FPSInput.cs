@@ -3,16 +3,21 @@ using System.Collections;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
-[AddComponentMenu("Control Script/Player Controller")]
-public class PlayerController : MonoBehaviour
+[AddComponentMenu("Control Script/FPS Input")]
+public class FPSInput : MonoBehaviour
 {
-    public float speed = 6.0f;
+    private float speed = 3.0f;
     public float gravity = -9.8f;
     public Text countText, leftText, winTextObject;
 
     private int count;
     private int initialCount;
     private CharacterController _charController;
+
+    public void OnSliderValueChanged(Slider slider)
+    {
+        speed = slider.value;
+    }
 
     void Start()
     {

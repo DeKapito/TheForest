@@ -26,6 +26,9 @@ public class MouseLook : MonoBehaviour
     }
     void Update()
     {
+        if (Time.timeScale == 0) {
+            return;
+        }
         if (axes == RotationAxes.MouseX)
         {
             transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
